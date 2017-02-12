@@ -1,20 +1,19 @@
-<?php
+﻿<?php
 /*
- *  Plugin Name: WooCommerce MM iyzico checkout form Payment Gateway
+ *  Plugin Name: WooCommerce Sub Merchant iyzico checkout form Payment Gateway
  *  Plugin URI: https://www.iyzico.com
- *  Description: MM iyzico Payment gateway for woocommerce
+ *  Description: WooCommerce Sub Merchant iyzico Payment gateway for woocommerce
  *  Text Domain: iyzico-woocommerce-checkout-form
  *  Domain Path: /i18n/languages/
  *  Version: 1.0.6
- *  Author: iyzico
+ *  Author: iyzico / Editor : Bulent Gercek <bulentgercek@gmail.com>
  *  Author URI: https://www.iyzico.com
  *  Editor : Bulent Gercek (BG)
  * */
-
 if (!defined('ABSPATH')) {
     exit; // Exit if accessed directly
 }
-define('API_URL_FORM', 'https://api.iyzipay.com/');
+define('API_URL_FORM', 'https://sandbox-api.iyzipay.com/');
 
 // init plugin
 add_action('plugins_loaded', 'woocommerce_iyzico_checkout_from_init', 0);
@@ -429,7 +428,8 @@ class iyzicocheckoutformGateway {
               
         # create client class
         $client = \Iyzipay\Client\Service\EcomCheckoutFormServiceClient::fromConfiguration($configuration);
-
+        debugIt("\n client : \n");
+        debugIt($client);
         # create request class
         $request = new \Iyzipay\Client\Ecom\Payment\Request\EcomPaymentCheckoutFormInitializeRequest();
         $request->setLocale(\Iyzipay\Client\RequestLocaleType::TR);
@@ -534,7 +534,7 @@ class iyzicocheckoutformGateway {
             $product_detail->setPrice(round($product_final_price, 2));
             $cart_total += round($product_final_price, 2);
             /**
-             * Yeni Submerchant bilgilerinin tanımlanması
+             * Yeni Sub Merchant Bilgilerinin Tanımlanması
              * Bu web sitesinde her spor salonunun 1 adet merchantkey'i var.
              * Her spor salonunun ürünleri Variable Product(Seçenekli Ürün)
              * Bir alışverişte sepette sadece tek bir satıcıdan, tek bir ürünün, tek bir varyasyonu alınabiliyor.
@@ -545,33 +545,27 @@ class iyzicocheckoutformGateway {
             // Sepette ürünü bulunan spor salonunun alt satıcı submerchant_key bilgisi alınıyor.
             $submerchant_key = get_post_field( 'submerchant_key', $item['product_id'] );
             // Sepetteki ürünün varyasyon numarası ile alt satıcının belirlemiş olduğu temel fiyat alınıyor
-            $submerchant_price = get_post_field( 'variable_submerchant_price', $item['variation_id'] );
-            // Debuglar 
-            //echo "<br>product";
-            //debugIt($product);
-            echo "<br><br>Cart Total<br>";
-            debugIt($cart_total);
-            echo "<br><br>submerchant_key<br>";
-            debugIt($submerchant_key);
-            echo "<br><br>submerchant_price [" . $item['variation_id'] . "]<br>";
-            debugIt($submerchant_price);
-            //echo "<br>item";
-            //debugIt($item);
-            echo "<br><br>plugin_settings<br>";
-            debugIt($this->_pluginSettings);
-            //echo "<br>user_meta";
-            //$current_meta_data_for_user = get_user_meta( get_current_user_id() );
-            //debugIt($current_meta_data_for_user);
+            $submerchant_price = floatval(get_post_field( 'variable_submerchant_price', $item['variation_id'] ));
             /**
-            * End of Defining New Submerchant Values (BG)
-            **/
-          
-            /**
-             * Request oluşturma
-             * By Bulent Gercek (BG)
+             * Bazı Debuglar
              */
+            debugIt("\n Cart Total : \n");
+            debugIt($cart_total);
+            
+            debugIt("\n submerchant_key : \n");
+            debugIt($submerchant_key);
+            
+            debugIt("\n submerchant_price [" . $item['variation_id'] . "] : \n");
+            debugIt($submerchant_price);
+
+            debugIt("\n plugin_settings : \n");
+            debugIt($this->_pluginSettings);
+          
             $product_detail->setSubMerchantKey($submerchant_key);
             $product_detail->setSubMerchantPrice($submerchant_price);
+            /**
+            * Yeni Sub Merchant Bilgilerinin Tanımlanması Sonu (BG)
+            **/
             
             if($product_final_price > 0) {
                 $items[] = $product_detail;
@@ -593,7 +587,7 @@ class iyzicocheckoutformGateway {
          * Request Debug
          * By Bulent Gercek (BG)
          **/
-        echo "<br><br>request<br>";
+        debugIt("\n request : \n");
         debugIt($request);
         /**
          * End of Request Debug (BG)
@@ -604,9 +598,15 @@ class iyzicocheckoutformGateway {
              wp_redirect( $this->_wcOrder->get_checkout_order_received_url());
         } else {
             $response = $client->initializeCheckoutForm($request);
-            echo "<br><br>response<br>";
+            /**
+             * Response Debug
+             * By Bulent Gercek (BG)
+             **/
+            debugIt("\n response : \n");
             debugIt($response);
-            
+            /**
+             * End of Respone Debug (BG)
+             **/   
             update_post_meta($this->_wcOrder->id, 'payment_form_initialization', json_encode(array(
                 'api_request' => $request->toJsonString(),
                 'api_response' => $response->getRawResult(),
@@ -615,9 +615,16 @@ class iyzicocheckoutformGateway {
                 'created' => date('Y-m-d H:i:s'),
                 'note' => ($response->getStatus() != 'success') ? $response->getErrorMessage() : ''
             )));
+            /**
+             * Final Post Meta Debug
+             * By Bulent Gercek (BG)
+             **/
             $meta = get_post_meta( $this->_wcOrder->id );
-            echo "<br><br>final response post_meta<br>";
-            debugIt($meta);exit;
+            debugIt("\n final post_meta : \n");
+            debugIt($meta);
+            /**
+             * End of Final Post Meta Debug (BG)
+             **/
             return $response;
             }
         }
