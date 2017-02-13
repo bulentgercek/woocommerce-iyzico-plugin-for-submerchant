@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-02-13 00:07+0000\n"
-"PO-Revision-Date: 2017-02-13 00:10+0000\n"
+"POT-Creation-Date: 2017-02-13 00:50+0000\n"
+"PO-Revision-Date: 2017-02-13 00:53+0000\n"
 "Last-Translator: admin <bulentgercek@gmail.com>\n"
 "Language-Team: Turkish\n"
 "Language: tr-TR\n"
@@ -18,41 +18,8 @@ msgstr ""
 "X-Loco-Target-Locale: tr_TR"
 
 #: class-wc-gateway-iyzico-checkout-form.php:119
-msgid "https://api.iyzipay.com | https://sandbox-api.iyzipay.com"
-msgstr "https://api.iyzipay.com | https://sandbox-api.iyzipay.com"
-
-#: class-wc-gateway-iyzico-checkout-form.php:134
-msgid "Popup"
-msgstr "Popup"
-
-#: class-wc-gateway-iyzico-checkout-form.php:134
-msgid "Responsive"
-msgstr "Responsive"
-
-#: class-wc-gateway-iyzico-checkout-form.php:162
-msgid "Gateway Disabled"
-msgstr "Geçit İnaktif"
-
-#: class-wc-gateway-iyzico-checkout-form.php:341
-msgid "Payment ID"
-msgstr "Ödeme ID"
-
-#. Name of the plugin
-msgid "WooCommerce Sub Merchant iyzico checkout form Payment Gateway"
-msgstr "WooCommerce Alt Satıcı iyzico Ödeme Formu Geçidi"
-
-#. Description of the plugin
-msgid "WooCommerce Sub Merchant iyzico Payment gateway for woocommerce"
-msgstr "WooCommerce Alt Satıcı iyzico Ödeme Formu Geçidi"
-
-#. URI of the plugin
-#. Author URI of the plugin
-msgid "https://www.iyzico.com"
-msgstr "https://www.iyzico.com"
-
-#. Author of the plugin
-msgid "iyzico / Editor : Bulent Gercek <bulentgercek@gmail.com>"
-msgstr "iyzico / Düzenleyen : Bulent Gercek <bulentgercek@gmail.com>"
+msgid "https://api.iyzipay.com/ | https://sandbox-api.iyzipay.com/"
+msgstr "https://api.iyzipay.com/ | https://sandbox-api.iyzipay.com/"
 
 #: class-wc-gateway-iyzico-checkout-form.php:46
 msgid "iyzico Sub Merchant Checkout Form"
@@ -103,6 +70,18 @@ msgstr "Üye İşyeri Canlı Güvenlik Anahtarı"
 msgid "Form Class"
 msgstr "Form Sınıfı"
 
+#: class-wc-gateway-iyzico-checkout-form.php:134
+msgid "Popup"
+msgstr "Popup"
+
+#: class-wc-gateway-iyzico-checkout-form.php:134
+msgid "Responsive"
+msgstr "Responsive"
+
+#: class-wc-gateway-iyzico-checkout-form.php:162
+msgid "Gateway Disabled"
+msgstr "Geçit İnaktif"
+
 #: class-wc-gateway-iyzico-checkout-form.php:162
 msgid "iyzico Checkout does not support your store currency."
 msgstr "iyzico ödeme formu para biriminizi desteklememektedir."
@@ -115,31 +94,52 @@ msgstr ""
 "Siparişiniz için teşekkür ederiz, iyzico Ödeme ile ödeme için aşağıdaki "
 "düğmeyi tıklayın."
 
-#: class-wc-gateway-iyzico-checkout-form.php:319
+#: class-wc-gateway-iyzico-checkout-form.php:322
 msgid ""
 "Thank you for shopping with us. Your account has been charged and your "
 "transaction is successful."
 msgstr ""
-"Bizimle alışveriş için teşekkür ederiz. Hesabınız suçlanıyor ve işlem "
-"başarılı."
+"Bizden alışveriş yaptığınız için teşekkür ederiz. Hesabınız tahsil edildi ve "
+"işlem başarılı oldu."
 
-#: class-wc-gateway-iyzico-checkout-form.php:330
+#: class-wc-gateway-iyzico-checkout-form.php:333
 msgid "Installment Fee"
 msgstr "Taksit Ücreti"
 
-#: class-wc-gateway-iyzico-checkout-form.php:341
+#: class-wc-gateway-iyzico-checkout-form.php:344
 msgid "Payment successful."
 msgstr "Ödeme başarılı"
 
-#: class-wc-gateway-iyzico-checkout-form.php:345
+#: class-wc-gateway-iyzico-checkout-form.php:344
+msgid "Payment ID"
+msgstr "Ödeme ID"
+
+#: class-wc-gateway-iyzico-checkout-form.php:348
 msgid ""
 "Thank you for shopping with us. However, the transaction has been declined."
 msgstr "Bizimle alışveriş için teşekkür ederiz. Ancak, işlem reddedildi."
 
-#: class-wc-gateway-iyzico-checkout-form.php:346
+#: class-wc-gateway-iyzico-checkout-form.php:349
 msgid "Transaction ERROR"
 msgstr "İşlem HATA"
 
-#: class-wc-gateway-iyzico-checkout-form.php:350
+#: class-wc-gateway-iyzico-checkout-form.php:353
 msgid "Security error. Illegal access detected."
 msgstr "Güvenlik Hatası (illegal access detected.)"
+
+#. Name of the plugin
+msgid "WooCommerce Sub Merchant iyzico checkout form Payment Gateway"
+msgstr "WooCommerce Alt Satıcı iyzico Ödeme Formu Geçidi"
+
+#. Description of the plugin
+msgid "WooCommerce Sub Merchant iyzico Payment gateway for woocommerce"
+msgstr "WooCommerce Alt Satıcı iyzico Ödeme Formu Geçidi"
+
+#. URI of the plugin
+#. Author URI of the plugin
+msgid "https://www.iyzico.com"
+msgstr "https://www.iyzico.com"
+
+#. Author of the plugin
+msgid "iyzico / Editor : Bulent Gercek <bulentgercek@gmail.com>"
+msgstr "iyzico / Düzenleyen : Bulent Gercek <bulentgercek@gmail.com>"

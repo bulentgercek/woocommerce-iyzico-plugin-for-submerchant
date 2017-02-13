@@ -116,8 +116,8 @@ function woocommerce_iyzico_checkout_from_init() {
                 'base_url' => array(
                     'title' => __('Api Base Url', 'iyzico-woocommerce-checkout-form'),
                     'type' => 'text',
-                    'description' => __('https://api.iyzipay.com | https://sandbox-api.iyzipay.com', 'iyzico-woocommerce-checkout-form'),
-                    'default' => 'https://api.iyzipay.com'
+                    'description' => __('https://api.iyzipay.com/ | https://sandbox-api.iyzipay.com/', 'iyzico-woocommerce-checkout-form'),
+                    'default' => 'https://api.iyzipay.com/'
                 ),
                 'live_form_api_id' => array(
                     'title' => __('Live Merchant API ID', 'iyzico-woocommerce-checkout-form'),
@@ -249,7 +249,7 @@ function woocommerce_iyzico_checkout_from_init() {
                 $configuration = new \Iyzipay\Client\Configuration\ClientConfiguration();
                 $configuration->setApiKey($this->api_id);
                 $configuration->setSecretKey($this->secret_key);
-                $configuration->setBaseUrl(API_URL_FORM);
+                $configuration->setBaseUrl($this->settings['base_url']);
 
                 # create client class
                 $client = \Iyzipay\Client\Service\EcomCheckoutFormServiceClient::fromConfiguration($configuration);
