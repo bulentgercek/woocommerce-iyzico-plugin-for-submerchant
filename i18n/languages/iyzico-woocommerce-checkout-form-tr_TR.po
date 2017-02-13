@@ -2,100 +2,144 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: \n"
-"PO-Revision-Date: 2016-03-28 11:46+0300\n"
-"Last-Translator: \n"
-"Language-Team: \n"
-"Language: tr_TR\n"
-"Plural-Forms: nplurals=1; plural=0;\n"
+"POT-Creation-Date: 2017-02-13 00:07+0000\n"
+"PO-Revision-Date: 2017-02-13 00:10+0000\n"
+"Last-Translator: admin <bulentgercek@gmail.com>\n"
+"Language-Team: Turkish\n"
+"Language: tr-TR\n"
+"Plural-Forms: nplurals=2; plural=n != 1\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Poedit-SourceCharset: UTF-8\n"
 "X-Loco-Source-Locale: en_TR\n"
-"X-Generator: Poedit 1.8.6\n"
+"X-Generator: Loco - https://localise.biz/\n"
 "X-Loco-Parser: loco_parse_po\n"
-"X-Loco-Target-Locale: tr_TR\n"
+"X-Loco-Target-Locale: tr_TR"
+
+#: class-wc-gateway-iyzico-checkout-form.php:119
+msgid "https://api.iyzipay.com | https://sandbox-api.iyzipay.com"
+msgstr "https://api.iyzipay.com | https://sandbox-api.iyzipay.com"
+
+#: class-wc-gateway-iyzico-checkout-form.php:134
+msgid "Popup"
+msgstr "Popup"
+
+#: class-wc-gateway-iyzico-checkout-form.php:134
+msgid "Responsive"
+msgstr "Responsive"
+
+#: class-wc-gateway-iyzico-checkout-form.php:162
+msgid "Gateway Disabled"
+msgstr "Geçit İnaktif"
+
+#: class-wc-gateway-iyzico-checkout-form.php:341
+msgid "Payment ID"
+msgstr "Ödeme ID"
+
+#. Name of the plugin
+msgid "WooCommerce Sub Merchant iyzico checkout form Payment Gateway"
+msgstr "WooCommerce Alt Satıcı iyzico Ödeme Formu Geçidi"
+
+#. Description of the plugin
+msgid "WooCommerce Sub Merchant iyzico Payment gateway for woocommerce"
+msgstr "WooCommerce Alt Satıcı iyzico Ödeme Formu Geçidi"
+
+#. URI of the plugin
+#. Author URI of the plugin
+msgid "https://www.iyzico.com"
+msgstr "https://www.iyzico.com"
+
+#. Author of the plugin
+msgid "iyzico / Editor : Bulent Gercek <bulentgercek@gmail.com>"
+msgstr "iyzico / Düzenleyen : Bulent Gercek <bulentgercek@gmail.com>"
+
+#: class-wc-gateway-iyzico-checkout-form.php:46
+msgid "iyzico Sub Merchant Checkout Form"
+msgstr "iyzico Alt Satıcı Ödeme Formu"
 
 # This file is distributed under the GNU General Public License v2 or later.
-msgid "iyzico Checkout"
-msgstr "Ödeme"
+#: class-wc-gateway-iyzico-checkout-form.php:47
+msgid ""
+"You can get your API ID and Secret key values from https://merchant.iyzipay."
+"com/settings."
+msgstr ""
+"API ID ve Gizli Anahtar değerlerinizi https://merchant.iyzipay.com/setting "
+"adresinden alabilirsiniz."
 
+#: class-wc-gateway-iyzico-checkout-form.php:50
 msgid "Proceed to iyzico checkout"
 msgstr "Ödeme Yap"
 
+#: class-wc-gateway-iyzico-checkout-form.php:104
 msgid "Enable/Disable"
-msgstr "Enable / Disable"
+msgstr "Aktif / İnaktif"
 
+#: class-wc-gateway-iyzico-checkout-form.php:105
 msgid "Enable iyzico checkout"
 msgstr "ödemeyi etkinleştirin"
 
+#: class-wc-gateway-iyzico-checkout-form.php:111
 msgid "Title"
-msgstr "başlık"
+msgstr "Başlık"
 
+#: class-wc-gateway-iyzico-checkout-form.php:113
 msgid "This message will show to the user during checkout."
 msgstr "Bu mesaj ödeme sırasında kullanıcıya gösterecektir."
 
-msgid "Description"
-msgstr "tanım"
+#: class-wc-gateway-iyzico-checkout-form.php:117
+msgid "Api Base Url"
+msgstr "Api Taban Web Adresi"
 
-msgid "Installment"
-msgstr "taksit"
-
-msgid "Payment Mode"
-msgstr "Ödeme Modu"
-
-msgid "Live"
-msgstr "Canlı"
-
+#: class-wc-gateway-iyzico-checkout-form.php:123
 msgid "Live Merchant API ID"
 msgstr "Üye İşyeri Canlı API Anahtarı"
 
+#: class-wc-gateway-iyzico-checkout-form.php:127
 msgid "Live Merchant Secret Key"
 msgstr "Üye İşyeri Canlı Güvenlik Anahtarı"
 
+#: class-wc-gateway-iyzico-checkout-form.php:131
+msgid "Form Class"
+msgstr "Form Sınıfı"
+
+#: class-wc-gateway-iyzico-checkout-form.php:162
+msgid "iyzico Checkout does not support your store currency."
+msgstr "iyzico ödeme formu para biriminizi desteklememektedir."
+
+#: class-wc-gateway-iyzico-checkout-form.php:174
 msgid ""
 "Thank you for your order, please click the button below to pay with iyzico "
 "Checkout."
 msgstr ""
-"Siparişiniz için teşekkür ederiz, iyzico Ödeme ile ödeme için aşağıdaki düğmeyi "
-"tıklayın."
+"Siparişiniz için teşekkür ederiz, iyzico Ödeme ile ödeme için aşağıdaki "
+"düğmeyi tıklayın."
 
+#: class-wc-gateway-iyzico-checkout-form.php:319
 msgid ""
 "Thank you for shopping with us. Your account has been charged and your "
 "transaction is successful."
 msgstr ""
-"Bizimle alışveriş için teşekkür ederiz. Hesabınız suçlanıyor ve işlem başarılı."
+"Bizimle alışveriş için teşekkür ederiz. Hesabınız suçlanıyor ve işlem "
+"başarılı."
 
+#: class-wc-gateway-iyzico-checkout-form.php:330
 msgid "Installment Fee"
 msgstr "Taksit Ücreti"
 
-msgid "Iyzico Transaction ID"
-msgstr "Iyzico Transaction ID"
-
-msgid "Thank you for shopping with us. However, the transaction has been declined."
-msgstr "Bizimle alışveriş için teşekkür ederiz. Ancak, işlem reddedildi."
-
-msgid "Transaction ERROR"
-msgstr "İşlem HATA"
-
-msgid "Error"
-msgstr "hata"
-
-msgid "iyzico Checkout does not support your store currency."
-msgstr "iyzico ödeme formu para biriminizi desteklememektedir."
-
+#: class-wc-gateway-iyzico-checkout-form.php:341
 msgid "Payment successful."
 msgstr "Ödeme başarılı"
 
-msgid "Invalid Token"
-msgstr "Geçersiz Token"
+#: class-wc-gateway-iyzico-checkout-form.php:345
+msgid ""
+"Thank you for shopping with us. However, the transaction has been declined."
+msgstr "Bizimle alışveriş için teşekkür ederiz. Ancak, işlem reddedildi."
 
-msgid "Invalid request"
-msgstr "Geçersiz istek"
+#: class-wc-gateway-iyzico-checkout-form.php:346
+msgid "Transaction ERROR"
+msgstr "İşlem HATA"
 
+#: class-wc-gateway-iyzico-checkout-form.php:350
 msgid "Security error. Illegal access detected."
 msgstr "Güvenlik Hatası (illegal access detected.)"
-
-msgid "Currently only TRY is supported."
-msgstr "Şu anda sadece TL desteklenmektedir."

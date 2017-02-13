@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 /*
  *  Plugin Name: WooCommerce Sub Merchant iyzico checkout form Payment Gateway
  *  Plugin URI: https://www.iyzico.com
@@ -13,7 +13,7 @@
 if (!defined('ABSPATH')) {
     exit; // Exit if accessed directly
 }
-define('API_URL_FORM', 'https://sandbox-api.iyzipay.com/');
+//define('API_URL_FORM', 'https://sandbox-api.iyzipay.com/');
 
 // init plugin
 add_action('plugins_loaded', 'woocommerce_iyzico_checkout_from_init', 0);
@@ -43,8 +43,8 @@ function woocommerce_iyzico_checkout_from_init() {
 
         public function __construct() {
             $this->id = 'iyzicocheckoutform';
-            $this->method_title = __('iyzico Checkout form', 'iyzico-woocommerce-checkout-form');
-            $this->method_description = __( 'You can get your API ID and Secret key values from https://merchant.iyzipay.com/settings.', 'iyzico-woocommerce-checkout-form' );
+            $this->method_title = __('iyzico Sub Merchant Checkout Form', 'iyzico-woocommerce-checkout-form');
+            $this->method_description = __('You can get your API ID and Secret key values from https://merchant.iyzipay.com/settings.', 'iyzico-woocommerce-checkout-form' );
             $this->icon = plugins_url('/iyzico-woocommerce-checkout-form/assets/img/cards.png', dirname(__FILE__));
             $this->has_fields = false;
             $this->order_button_text = __('Proceed to iyzico checkout', 'iyzico-woocommerce-checkout-form');
@@ -60,6 +60,9 @@ function woocommerce_iyzico_checkout_from_init() {
             $this->title = $this->settings['title'];
             $this->enabled = $this->settings['enabled'];
             $this->form_class = $this->settings['form_class'];
+          
+            // Base URL Set
+            $this->base_url = $this->settings['base_url'];
             
             //live keys
             $this->api_id = $this->settings['live_form_api_id'];
@@ -103,11 +106,18 @@ function woocommerce_iyzico_checkout_from_init() {
                     'type' => 'checkbox',
                     'default' => 'yes'
                 ),
+
                 'title' => array(
                     'title' => __('Title', 'iyzico-woocommerce-checkout-form'),
                     'type' => 'text',
                     'description' => __('This message will show to the user during checkout.', 'iyzico-woocommerce-checkout-form'),
                     'default' => '�deme Yap'
+                ),
+                'base_url' => array(
+                    'title' => __('Api Base Url', 'iyzico-woocommerce-checkout-form'),
+                    'type' => 'text',
+                    'description' => __('https://api.iyzipay.com | https://sandbox-api.iyzipay.com', 'iyzico-woocommerce-checkout-form'),
+                    'default' => 'https://api.iyzipay.com'
                 ),
                 'live_form_api_id' => array(
                     'title' => __('Live Merchant API ID', 'iyzico-woocommerce-checkout-form'),
@@ -420,7 +430,7 @@ class iyzicocheckoutformGateway {
         $configuration = new \Iyzipay\Client\Configuration\ClientConfiguration();
         $configuration->setApiKey($api_id);
         $configuration->setSecretKey($secret_key);
-        $configuration->setBaseUrl(API_URL_FORM);
+        $configuration->setBaseUrl($this->_pluginSettings['base_url']);
        
         $order_amount = $this->_wcOrder->order_total;
         $checkout_orderurl = $this->_wcOrder->get_checkout_order_received_url();
@@ -428,8 +438,8 @@ class iyzicocheckoutformGateway {
               
         # create client class
         $client = \Iyzipay\Client\Service\EcomCheckoutFormServiceClient::fromConfiguration($configuration);
-        debugIt("\n client : \n");
-        debugIt($client);
+        //debugIt("\n client : \n");
+        //debugIt($client);
         # create request class
         $request = new \Iyzipay\Client\Ecom\Payment\Request\EcomPaymentCheckoutFormInitializeRequest();
         $request->setLocale(\Iyzipay\Client\RequestLocaleType::TR);
@@ -549,17 +559,17 @@ class iyzicocheckoutformGateway {
             /**
              * Bazı Debuglar
              */
-            debugIt("\n Cart Total : \n");
-            debugIt($cart_total);
+            //debugIt("\n Cart Total : \n");
+            //debugIt($cart_total);
             
-            debugIt("\n submerchant_key : \n");
-            debugIt($submerchant_key);
+            //debugIt("\n submerchant_key : \n");
+            //debugIt($submerchant_key);
             
-            debugIt("\n submerchant_price [" . $item['variation_id'] . "] : \n");
-            debugIt($submerchant_price);
+            //debugIt("\n submerchant_price [" . $item['variation_id'] . "] : \n");
+            //debugIt($submerchant_price);
 
-            debugIt("\n plugin_settings : \n");
-            debugIt($this->_pluginSettings);
+            //debugIt("\n plugin_settings : \n");
+            //debugIt($this->_pluginSettings);
           
             $product_detail->setSubMerchantKey($submerchant_key);
             $product_detail->setSubMerchantPrice($submerchant_price);
@@ -587,8 +597,8 @@ class iyzicocheckoutformGateway {
          * Request Debug
          * By Bulent Gercek (BG)
          **/
-        debugIt("\n request : \n");
-        debugIt($request);
+        //debugIt("\n request : \n");
+        //debugIt($request);
         /**
          * End of Request Debug (BG)
          **/
@@ -602,8 +612,8 @@ class iyzicocheckoutformGateway {
              * Response Debug
              * By Bulent Gercek (BG)
              **/
-            debugIt("\n response : \n");
-            debugIt($response);
+            //debugIt("\n response : \n");
+            //debugIt($response);
             /**
              * End of Respone Debug (BG)
              **/   
@@ -620,8 +630,8 @@ class iyzicocheckoutformGateway {
              * By Bulent Gercek (BG)
              **/
             $meta = get_post_meta( $this->_wcOrder->id );
-            debugIt("\n final post_meta : \n");
-            debugIt($meta);
+            //debugIt("\n final post_meta : \n");
+            //debugIt($meta);
             /**
              * End of Final Post Meta Debug (BG)
              **/

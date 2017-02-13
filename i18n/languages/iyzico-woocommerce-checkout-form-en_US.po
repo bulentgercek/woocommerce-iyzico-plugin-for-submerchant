@@ -13,6 +13,9 @@ msgstr ""
 "Language: en_US\n"
 
 # This file is distributed under the GNU General Public License v2 or later.
+msgid "You can get your API ID and Secret key values from https://merchant.iyzipay.com/settings."
+msgstr "You can get your API ID and Secret key values from https://merchant.iyzipay.com/settings."
+
 msgid "iyzico Checkout"
 msgstr "iyzico Checkout"
 
@@ -27,6 +30,9 @@ msgstr "Enable iyzico checkout"
 
 msgid "Title"
 msgstr "Title"
+
+msgid "Api Base Url"
+msgstr "Api Base Url"
 
 msgid "This message will show to the user during checkout."
 msgstr "This message will show to the user during checkout."
