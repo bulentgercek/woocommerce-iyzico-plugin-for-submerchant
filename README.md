@@ -1,5 +1,6 @@
 # Woocommerce iyzico Plugin With Sub Merchant Support
 Edited version of iyzico's woocommerce plugin with submerchant support.
+Only works with Variable Product option in Woocommerce.
 By Bulent Gercek
 
 Special Note :
